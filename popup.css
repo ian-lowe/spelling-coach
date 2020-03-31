@@ -1,0 +1,103 @@
+html,
+body {
+  min-height: 400px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  width: 450px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.app-body {
+  display: flex;
+  flex-direction: row;
+}
+
+.body-sub {
+  width: 50%;
+  min-height: 250px;
+  /* border: 1px solid orangered; */
+}
+
+.sub-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+}
+
+.sub-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-word-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.add-word-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin: 2px;
+}
+
+.sub-left input {
+  width: 170px;
+  height: 39px;
+  line-height: 39px;
+  font-size: 18px;
+  margin-top: 2px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  background: rgb(243, 239, 239);
+  padding-left: 5px;
+}
+
+.sub-left input:focus {
+  outline: none;
+}
+
+.sub-title {
+  height: 25px;
+  font-size: 22px;
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+
+.word-list {
+  /* border: 1px solid blue; */
+  max-height: 200px;
+  overflow: auto;
+  width: 170px;
+  font-size: 18px;
+  margin-top: 2px;
+}
+
+.word-list div {
+  margin-bottom: 10px;
+  list-style: none;
+  background: rgb(243, 239, 239);
+  padding: 5px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.word-list div:hover {
+  background: rgb(230, 220, 220);
+}
