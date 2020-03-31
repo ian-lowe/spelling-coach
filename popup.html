@@ -3,9 +3,7 @@
   <head>
     <title>Spelling Coach</title>
     <link rel="stylesheet" href="./popup.css" />
-    <script src="popup.js"></script>
   </head>
-
   <body>
     <div id="app">
       <div class="app-header">
@@ -15,15 +13,16 @@
         <div class="body-sub sub-left">
           <div class="sub-title">Add Word</div>
           <div class="add-word-form">
-            <div class="add-word-button">+</div>
-            <input type="text" />
+            <div class="add-word-button" id="addWordButton">+</div>
+            <input type="text" id="addWordInput" />
           </div>
         </div>
         <div class="body-sub sub-right">
           <div class="sub-title">Word List</div>
-          <div class="word-list"></div>
+          <div class="word-list" id="wordList"></div>
         </div>
       </div>
     </div>
+    <script src="popup.js"></script>
   </body>
 </html>
