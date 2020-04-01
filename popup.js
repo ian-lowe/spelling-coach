@@ -15,8 +15,8 @@ if (words === null) {
 }
 
 addWordButton.addEventListener("click", function() {
-  const inputValue = addWordInput.value.replace(/\s/g, "");
-  if (inputValue != "") {
+  const inputValue = addWordInput.value.toLowerCase().replace(/\s/g, "");
+  if (inputValue != "" && words.includes(inputValue) != true) {
     // add to localStorage
     words.push(inputValue);
     localStorage.setItem("words", JSON.stringify(words));
@@ -27,4 +27,13 @@ addWordButton.addEventListener("click", function() {
     wordList.appendChild(newWord);
   }
   addWordInput.value = "";
+});
+
+wordList.addEventListener("click", function(e) {
+  const wordToDelete = e.target.innerText;
+  const index = words.indexOf(wordToDelete);
+  words.splice(index, 1);
+  localStorage.setItem("words", JSON.stringify(words));
+  e.target.remove();
+  console.log(words);
 });
