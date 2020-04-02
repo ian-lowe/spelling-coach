@@ -84,24 +84,35 @@ body {
   /* border: 1px solid blue; */
   max-height: 200px;
   overflow: auto;
-  width: 170px;
+  width: 180px;
   font-size: 18px;
   margin-top: 2px;
+  padding-right: 25px;
 }
 
 .word-list div {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  list-style: none;
   background: rgb(243, 239, 239);
-  padding: 5px;
-  height: 30px;
+  height: 32px;
   font-size: 18px;
+  width: 170px;
+  padding: 5px;
+}
+
+.word-list span {
+  width: 25px;
+  text-align: center;
 }
 
 .word-list div:hover {
   background: rgb(230, 220, 220);
+}
+
+.word-list div:focus {
+  background: rgb(218, 198, 198);
+  outline: none;
 }
 
 .app-bottom input {

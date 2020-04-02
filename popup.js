@@ -10,6 +10,7 @@ if (words === null) {
 } else {
   for (let i = 0; i < words.length; i++) {
     const newWord = document.createElement("div");
+    newWord.setAttribute("tabindex", 0);
     newWord.innerText = words[i];
     wordList.appendChild(newWord);
     const newX = document.createElement("span");
@@ -40,6 +41,7 @@ addWordButton.addEventListener("click", function() {
 
     // add to dom
     const newWord = document.createElement("div");
+    newWord.setAttribute("tabindex", 0);
     newWord.innerText = inputValue;
     wordList.appendChild(newWord);
     const newX = document.createElement("span");
