@@ -1,3 +1,7 @@
+* {
+  font-family: monospace;
+}
+
 html,
 body {
   min-height: 400px;
@@ -106,13 +110,30 @@ body {
   text-align: center;
 }
 
+/* .word-list div:focus {
+  color: rgb(243, 239, 239);
+  outline: none;
+} */
+
 .word-list div:hover {
   background: rgb(230, 220, 220);
 }
 
-.word-list div:focus {
-  background: rgb(218, 198, 198);
-  outline: none;
+.app-bottom {
+  height: 100px;
+  /* border: 1px solid orangered; */
+}
+
+.app-bottom div {
+  width: 219px;
+  height: 39px;
+  line-height: 39px;
+  font-size: 18px;
+  margin-top: 6px;
+  margin-left: 2px;
+  background: rgb(243, 239, 239);
+  padding-left: 5px;
+  white-space: pre;
 }
 
 .app-bottom input {
@@ -120,12 +141,13 @@ body {
   height: 39px;
   line-height: 39px;
   font-size: 18px;
-  margin-top: 2px;
+  margin-top: 6px;
   margin-left: 2px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   background: rgb(243, 239, 239);
   padding-left: 5px;
+  font-weight: 300;
 }
 
 .app-bottom input:focus {

@@ -1,6 +1,7 @@
 const addWordButton = document.querySelector("#addWordButton");
 const addWordInput = document.querySelector("#addWordInput");
 const wordList = document.querySelector("#wordList");
+const currentWord = document.querySelector("#currentWord");
 
 let words = JSON.parse(localStorage.getItem("words"));
 
@@ -18,16 +19,17 @@ if (words === null) {
     wordList.lastChild.appendChild(newX);
 
     newX.addEventListener("click", function(e) {
-      // this is kind of ghetto. innerText includes the text inside of the span for the delete button, so it needs to be removed before processing the deletion.
-      const wordToDelete = newWord.innerText.substr(
-        0,
-        newWord.innerText.length - 1
-      );
-      console.log(wordToDelete);
+      const wordToDelete = words[i];
       const index = words.indexOf(wordToDelete);
       words.splice(index, 1);
       localStorage.setItem("words", JSON.stringify(words));
       newWord.remove();
+    });
+
+    newWord.addEventListener("click", function(e) {
+      if (e.target === this) {
+        currentWord.innerText = words[i];
+      }
     });
   }
 }
@@ -54,12 +56,26 @@ addWordButton.addEventListener("click", function() {
         0,
         newWord.innerText.length - 1
       );
-      console.log(wordToDelete);
+
       const index = words.indexOf(wordToDelete);
       words.splice(index, 1);
       localStorage.setItem("words", JSON.stringify(words));
       newWord.remove();
     });
+
+    newWord.addEventListener("click", function(e) {
+      if (e.target === this) {
+        const word = newWord.innerText.substr(0, newWord.innerText.length - 1);
+        currentWord.innerText = replace(word);
+      }
+    });
   }
   addWordInput.value = "";
 });
+
+function replace(str) {
+  return str
+    .split("")
+    .map(char => (Math.random() > 0.5 ? " " : char))
+    .join("");
+}
