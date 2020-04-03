@@ -1,5 +1,6 @@
 * {
   font-family: monospace;
+  box-sizing: border-box;
 }
 
 html,
@@ -63,7 +64,7 @@ body {
 
 .sub-left input {
   width: 170px;
-  height: 39px;
+  height: 40px;
   line-height: 39px;
   font-size: 18px;
   margin-top: 2px;
@@ -88,7 +89,7 @@ body {
   /* border: 1px solid blue; */
   max-height: 200px;
   overflow: auto;
-  width: 180px;
+  width: 190px;
   font-size: 18px;
   margin-top: 2px;
   padding-right: 25px;
@@ -100,7 +101,7 @@ body {
   justify-content: space-between;
   margin-bottom: 10px;
   background: rgb(243, 239, 239);
-  height: 32px;
+  height: 40px;
   font-size: 18px;
   width: 170px;
   padding: 5px;
@@ -117,7 +118,7 @@ body {
 } */
 
 .word-list div:hover {
-  background: rgb(230, 220, 220);
+  background: rgb(243, 164, 164);
 }
 
 .app-bottom {
@@ -153,4 +154,8 @@ body {
 
 .app-bottom input:focus {
   outline: none;
+}
+
+.focused-word {
+  background-color: blue;
 }
