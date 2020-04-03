@@ -6,6 +6,8 @@ const practiceInput = document.querySelector("#practiceInput");
 
 let words = JSON.parse(localStorage.getItem("words"));
 
+currentWordArr = [];
+
 // populate word list
 if (words === null) {
   words = [];
@@ -29,7 +31,9 @@ if (words === null) {
 
     newWord.addEventListener("click", function(e) {
       if (e.target === this) {
-        currentWord.innerText = replace(words[i]);
+        const word = this.innerText.substr(0, newWord.innerText.length - 2);
+        currentWord.innerText = replace(word);
+        currentWordArr = word.split("");
         practiceInput.value = "";
         practiceInput.focus();
       }
@@ -57,7 +61,7 @@ addWordButton.addEventListener("click", function() {
     newX.addEventListener("click", function(e) {
       const wordToDelete = newWord.innerText.substr(
         0,
-        newWord.innerText.length - 1
+        newWord.innerText.length - 2
       );
 
       const index = words.indexOf(wordToDelete);
@@ -68,8 +72,10 @@ addWordButton.addEventListener("click", function() {
 
     newWord.addEventListener("click", function(e) {
       if (e.target === this) {
-        const word = newWord.innerText.substr(0, newWord.innerText.length - 1);
+        // -2 gets rid of X from the span, as well as a phantom enter key press that was being logged when splitting the word into an array.
+        const word = newWord.innerText.substr(0, newWord.innerText.length - 2);
         currentWord.innerText = replace(word);
+        currentWordArr = word.split("");
         practiceInput.value = "";
         practiceInput.focus();
       }
