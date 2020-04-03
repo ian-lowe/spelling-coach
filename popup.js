@@ -27,6 +27,7 @@ if (words === null) {
       words.splice(index, 1);
       localStorage.setItem("words", JSON.stringify(words));
       newWord.remove();
+      practiceInput.value = "";
     });
 
     newWord.addEventListener("click", function(e) {
@@ -34,6 +35,7 @@ if (words === null) {
         const word = this.innerText.substr(0, newWord.innerText.length - 2);
         currentWord.innerText = replace(word);
         currentWordArr = word.split("");
+        practiceInput.style.cssText = "rgb(243, 239, 239);";
         practiceInput.value = "";
         practiceInput.focus();
       }
@@ -68,6 +70,7 @@ addWordButton.addEventListener("click", function() {
       words.splice(index, 1);
       localStorage.setItem("words", JSON.stringify(words));
       newWord.remove();
+      practiceInput.value = "";
     });
 
     newWord.addEventListener("click", function(e) {
@@ -76,12 +79,24 @@ addWordButton.addEventListener("click", function() {
         const word = newWord.innerText.substr(0, newWord.innerText.length - 2);
         currentWord.innerText = replace(word);
         currentWordArr = word.split("");
+        practiceInput.style.cssText = "rgb(243, 239, 239);";
         practiceInput.value = "";
         practiceInput.focus();
       }
     });
   }
   addWordInput.value = "";
+});
+
+practiceInput.addEventListener("input", function() {
+  const currLen = this.value.length;
+  if (this.value === currentWordArr.join("")) {
+    practiceInput.style.cssText = "background-color: #5cb85c";
+  } else if (this.value[currLen - 1] !== currentWordArr[currLen - 1]) {
+    practiceInput.style.cssText = "background: #d9534f";
+  } else {
+    practiceInput.style.cssText = "rgb(243, 239, 239);";
+  }
 });
 
 function replace(str) {
