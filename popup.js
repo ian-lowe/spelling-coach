@@ -29,7 +29,7 @@ if (words === null) {
 
     newWord.addEventListener("click", function(e) {
       if (e.target === this) {
-        currentWord.innerText = words[i];
+        currentWord.innerText = replace(words[i]);
         practiceInput.value = "";
         practiceInput.focus();
       }
