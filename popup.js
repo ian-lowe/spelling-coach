@@ -2,6 +2,7 @@ const addWordButton = document.querySelector("#addWordButton");
 const addWordInput = document.querySelector("#addWordInput");
 const wordList = document.querySelector("#wordList");
 const currentWord = document.querySelector("#currentWord");
+const practiceInput = document.querySelector("#practiceInput");
 
 let words = JSON.parse(localStorage.getItem("words"));
 
@@ -29,6 +30,8 @@ if (words === null) {
     newWord.addEventListener("click", function(e) {
       if (e.target === this) {
         currentWord.innerText = words[i];
+        practiceInput.value = "";
+        practiceInput.focus();
       }
     });
   }
@@ -67,6 +70,8 @@ addWordButton.addEventListener("click", function() {
       if (e.target === this) {
         const word = newWord.innerText.substr(0, newWord.innerText.length - 1);
         currentWord.innerText = replace(word);
+        practiceInput.value = "";
+        practiceInput.focus();
       }
     });
   }

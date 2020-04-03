@@ -96,6 +96,7 @@ body {
 
 .word-list div {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
   background: rgb(243, 239, 239);
