@@ -152,6 +152,11 @@ body {
   font-weight: 300;
 }
 
+.correct-spelling {
+  background-color: rgb(243, 239, 239);
+  transition: background-color 0.5s;
+}
+
 .app-bottom input:focus {
   outline: none;
 }

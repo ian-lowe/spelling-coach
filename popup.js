@@ -103,7 +103,17 @@ addWordButton.addEventListener("click", function() {
 practiceInput.addEventListener("input", function() {
   const currLen = this.value.length;
   if (this.value === currentWordArr.join("")) {
+    // word spelled correctly
     practiceInput.style.cssText = "background-color: #5cb85c";
+    setTimeout(() => {
+      practiceInput.classList.add("correct-spelling");
+      practiceInput.style.cssText = "rgb(243, 239, 239);";
+    }, 500);
+    setTimeout(() => {
+      practiceInput.classList.remove("correct-spelling");
+      practiceInput.value = "";
+      currentWord.innerText = replace(currentWordArr.join(""));
+    }, 1000);
   } else if (this.value[currLen - 1] !== currentWordArr[currLen - 1]) {
     practiceInput.style.cssText = "background: #d9534f";
   } else {
