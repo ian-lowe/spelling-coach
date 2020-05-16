@@ -21,7 +21,7 @@ if (words === null) {
     newX.innerText = "X";
     wordList.lastChild.appendChild(newX);
 
-    newX.addEventListener("click", function(e) {
+    newX.addEventListener("click", function (e) {
       const wordToDelete = words[i];
       const index = words.indexOf(wordToDelete);
       words.splice(index, 1);
@@ -30,7 +30,7 @@ if (words === null) {
       practiceInput.value = "";
     });
 
-    newWord.addEventListener("click", function(e) {
+    newWord.addEventListener("click", function (e) {
       if (e.target === this) {
         const word = this.innerText.substr(0, newWord.innerText.length - 2);
         currentWord.innerText = replace(word);
@@ -49,7 +49,7 @@ if (words === null) {
   }
 }
 
-addWordButton.addEventListener("click", function() {
+addWordButton.addEventListener("click", function () {
   const inputValue = addWordInput.value.toLowerCase().replace(/\s/g, "");
   if (inputValue != "" && words.includes(inputValue) != true) {
     // add to localStorage
@@ -66,7 +66,7 @@ addWordButton.addEventListener("click", function() {
     wordList.lastChild.appendChild(newX);
     wordList.scrollTop = wordList.scrollHeight;
 
-    newX.addEventListener("click", function(e) {
+    newX.addEventListener("click", function (e) {
       const wordToDelete = newWord.innerText.substr(
         0,
         newWord.innerText.length - 2
@@ -79,7 +79,7 @@ addWordButton.addEventListener("click", function() {
       practiceInput.value = "";
     });
 
-    newWord.addEventListener("click", function(e) {
+    newWord.addEventListener("click", function (e) {
       if (e.target === this) {
         // -2 gets rid of X from the span, as well as a phantom enter key press that was being logged when splitting the word into an array.
         const word = newWord.innerText.substr(0, newWord.innerText.length - 2);
@@ -100,7 +100,7 @@ addWordButton.addEventListener("click", function() {
   addWordInput.value = "";
 });
 
-practiceInput.addEventListener("input", function() {
+practiceInput.addEventListener("input", function () {
   const currLen = this.value.length;
   if (this.value === currentWordArr.join("")) {
     // word spelled correctly
@@ -113,7 +113,7 @@ practiceInput.addEventListener("input", function() {
       practiceInput.classList.remove("correct-spelling");
       practiceInput.value = "";
       currentWord.innerText = replace(currentWordArr.join(""));
-    }, 1000);
+    }, 750);
   } else if (this.value[currLen - 1] !== currentWordArr[currLen - 1]) {
     practiceInput.style.cssText = "background: #d9534f";
   } else {
@@ -124,6 +124,6 @@ practiceInput.addEventListener("input", function() {
 function replace(str) {
   return str
     .split("")
-    .map(char => (Math.random() > 0.5 ? " " : char))
+    .map((char) => (Math.random() > 0.5 ? " " : char))
     .join("");
 }
