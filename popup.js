@@ -46,6 +46,25 @@ if (words === null) {
           "color: rgb(243, 239, 239); border-left: 3px solid #5cb85c";
       }
     });
+
+    newWord.addEventListener("keyup", function (e) {
+      if (e.target === this) {
+        if (e.key === "Enter") {
+          const word = this.innerText.substr(0, newWord.innerText.length - 2);
+          currentWord.innerText = replace(word);
+          currentWordArr = word.split("");
+          practiceInput.style.cssText = "rgb(243, 239, 239);";
+          practiceInput.value = "";
+          practiceInput.focus();
+          const otherWords = document.querySelectorAll("#wordList div");
+          for (let n = 0; n < otherWords.length; n++) {
+            otherWords[n].style.cssText = "color: black";
+          }
+          this.style.cssText =
+            "color: rgb(243, 239, 239); border-left: 3px solid #5cb85c";
+        }
+      }
+    });
   }
 }
 
@@ -94,6 +113,28 @@ addWordButton.addEventListener("click", function () {
         }
         this.style.cssText =
           "color: rgb(243, 239, 239); border-left: 3px solid #5cb85c";
+      }
+    });
+
+    newWord.addEventListener("keyup", function (e) {
+      if (e.target === this) {
+        if (e.key === "Enter") {
+          const word = newWord.innerText.substr(
+            0,
+            newWord.innerText.length - 2
+          );
+          currentWord.innerText = replace(word);
+          currentWordArr = word.split("");
+          practiceInput.style.cssText = "rgb(243, 239, 239);";
+          practiceInput.value = "";
+          practiceInput.focus();
+          const otherWords = document.querySelectorAll("#wordList div");
+          for (let n = 0; n < otherWords.length; n++) {
+            otherWords[n].style.cssText = "color: black";
+          }
+          this.style.cssText =
+            "color: rgb(243, 239, 239); border-left: 3px solid #5cb85c";
+        }
       }
     });
   }
