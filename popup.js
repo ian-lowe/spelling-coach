@@ -3,6 +3,9 @@ const addWordInput = document.querySelector("#addWordInput");
 const wordList = document.querySelector("#wordList");
 const currentWord = document.querySelector("#currentWord");
 const practiceInput = document.querySelector("#practiceInput");
+const statsButton = document.querySelector("#statsButton");
+const statsPopup = document.querySelector("#statsPopup");
+const app = document.querySelector("#app");
 
 let words = JSON.parse(localStorage.getItem("words"));
 let wordData = JSON.parse(localStorage.getItem("wordData"));
@@ -186,6 +189,11 @@ practiceInput.addEventListener("input", function () {
   } else {
     practiceInput.style.cssText = "rgb(243, 239, 239);";
   }
+});
+
+statsButton.addEventListener("click", function () {
+  statsPopup.style.display = "block";
+  app.style.opacity = "15%";
 });
 
 function replace(str) {

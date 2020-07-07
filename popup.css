@@ -22,6 +22,27 @@ body {
   margin-bottom: 15px;
 }
 
+.bar-graph-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  position: relative;
+  right: 125px;
+  border-bottom: 1px solid black;
+}
+
+.bar-graph-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.bar-graph-container:hover {
+  border-bottom: 1px solid rgb(146, 146, 146);
+}
+
 .app-body {
   display: flex;
   flex-direction: row;
@@ -163,4 +184,18 @@ body {
 
 .focused-word {
   background-color: blue;
+}
+
+/* modals */
+
+.stats-popup {
+  display: none;
+  background-color: rgb(201, 201, 202);
+  width: 300px;
+  height: 300px;
+  z-index: 1;
+  position: fixed;
+  top: 60px;
+  left: 85px;
+  border-radius: 5px;
 }
