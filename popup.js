@@ -6,6 +6,7 @@ const practiceInput = document.querySelector("#practiceInput");
 const statsButton = document.querySelector("#statsButton");
 const statsPopup = document.querySelector("#statsPopup");
 const app = document.querySelector("#app");
+const modalCloseButton = document.querySelector("#modalCloseButton");
 
 let words = JSON.parse(localStorage.getItem("words"));
 let wordData = JSON.parse(localStorage.getItem("wordData"));
@@ -194,6 +195,11 @@ practiceInput.addEventListener("input", function () {
 statsButton.addEventListener("click", function () {
   statsPopup.style.display = "block";
   app.style.opacity = "15%";
+});
+
+modalCloseButton.addEventListener("click", function () {
+  statsPopup.style.display = "none";
+  app.style.opacity = "100%";
 });
 
 function replace(str) {

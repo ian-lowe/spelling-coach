@@ -199,3 +199,35 @@ body {
   left: 85px;
   border-radius: 5px;
 }
+
+.stats-popup-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 300px;
+  padding: 5px;
+}
+
+.close-button-icon-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+.close-button-icon {
+  height: 15px;
+  width: 15px;
+}
+
+.stats-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.stats-popup-body {
+  margin-top: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
