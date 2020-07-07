@@ -5,12 +5,14 @@ const currentWord = document.querySelector("#currentWord");
 const practiceInput = document.querySelector("#practiceInput");
 
 let words = JSON.parse(localStorage.getItem("words"));
+let wordData = JSON.parse(localStorage.getItem("wordData"));
 
 currentWordArr = [];
 
 // populate word list
 if (words === null) {
   words = [];
+  wordData = {};
 } else {
   for (let i = 0; i < words.length; i++) {
     const newWord = document.createElement("div");
@@ -25,9 +27,16 @@ if (words === null) {
       const wordToDelete = words[i];
       const index = words.indexOf(wordToDelete);
       words.splice(index, 1);
+      delete wordData[wordToDelete];
       localStorage.setItem("words", JSON.stringify(words));
+      localStorage.setItem("wordData", JSON.stringify(wordData));
       newWord.remove();
       practiceInput.value = "";
+
+      if (wordToDelete == currentWordArr.join("")) {
+        currentWordArr = [];
+        currentWord.innerText = "";
+      }
     });
 
     newWord.addEventListener("click", function (e) {
@@ -73,7 +82,9 @@ addWordButton.addEventListener("click", function () {
   if (inputValue != "" && words.includes(inputValue) != true) {
     // add to localStorage
     words.push(inputValue);
+    wordData[inputValue] = 0;
     localStorage.setItem("words", JSON.stringify(words));
+    localStorage.setItem("wordData", JSON.stringify(wordData));
 
     // add to dom
     const newWord = document.createElement("div");
@@ -93,9 +104,16 @@ addWordButton.addEventListener("click", function () {
 
       const index = words.indexOf(wordToDelete);
       words.splice(index, 1);
+      delete wordData[wordToDelete];
       localStorage.setItem("words", JSON.stringify(words));
+      localStorage.setItem("wordData", JSON.stringify(wordData));
       newWord.remove();
       practiceInput.value = "";
+
+      if (wordToDelete == currentWordArr.join("")) {
+        currentWordArr = [];
+        currentWord.innerText = "";
+      }
     });
 
     newWord.addEventListener("click", function (e) {
@@ -142,11 +160,18 @@ addWordButton.addEventListener("click", function () {
 });
 
 practiceInput.addEventListener("input", function () {
+  // if no word selected, do nothing.
+  if (currentWordArr == "") {
+    return;
+  }
   const currLen = this.value.length;
   const currentWordString = currentWordArr.join("");
   if (this.value === currentWordString) {
     // word spelled correctly
     practiceInput.style.cssText = "background-color: #5cb85c";
+    // add to word count and update localStorage
+    wordData[currentWordString] += 1;
+    localStorage.setItem("wordData", JSON.stringify(wordData));
     setTimeout(() => {
       practiceInput.classList.add("correct-spelling");
       practiceInput.style.cssText = "rgb(243, 239, 239);";
