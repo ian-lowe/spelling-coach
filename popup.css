@@ -190,10 +190,10 @@ body {
 
 .stats-popup {
   display: none;
-  background-color: rgb(201, 201, 202);
+  background-color: rgb(255, 251, 251);
   width: 300px;
   height: 300px;
-  z-index: 1;
+  z-index: 3;
   position: fixed;
   top: 60px;
   left: 85px;
@@ -227,7 +227,44 @@ body {
 }
 
 .stats-popup-body {
+  display: flex;
+  align-items: space-evenly;
+  justify-content: space-evenly;
+  flex-direction: rows;
   margin-top: 10px;
-  padding-left: 50px;
+  padding-left: 20px;
   padding-right: 50px;
+  font-size: 16px;
+}
+
+.word-score-list {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.num-score-list {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.stats-popup-body ul {
+  text-align: center;
+}
+
+.stats-popup-body li {
+  list-style: none;
+}
+
+.overlay {
+  display: none;
+  opacity: 60%;
+  background: rgb(223, 222, 222);
+  height: 450px;
+  width: 470px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }

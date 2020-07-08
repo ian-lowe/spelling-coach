@@ -7,6 +7,9 @@ const statsButton = document.querySelector("#statsButton");
 const statsPopup = document.querySelector("#statsPopup");
 const app = document.querySelector("#app");
 const modalCloseButton = document.querySelector("#modalCloseButton");
+const wordScoreList = document.querySelector("#wordScoreList");
+const numScoreList = document.querySelector("#numScoreList");
+const overlay = document.querySelector("#overlay");
 
 let words = JSON.parse(localStorage.getItem("words"));
 let wordData = JSON.parse(localStorage.getItem("wordData"));
@@ -194,12 +197,28 @@ practiceInput.addEventListener("input", function () {
 
 statsButton.addEventListener("click", function () {
   statsPopup.style.display = "block";
-  app.style.opacity = "15%";
+  overlay.style.display = "block";
+
+  // render word list
+  for (word of words) {
+    const newLi = document.createElement("li");
+    const newLi2 = document.createElement("li");
+    newLi.innerText = word;
+    newLi2.innerText = wordData[word];
+    wordScoreList.appendChild(newLi);
+    numScoreList.appendChild(newLi2);
+  }
 });
 
 modalCloseButton.addEventListener("click", function () {
   statsPopup.style.display = "none";
-  app.style.opacity = "100%";
+  overlay.style.display = "none";
+
+  // remove words from score list
+  for (word of words) {
+    wordScoreList.removeChild(wordScoreList.lastChild);
+    numScoreList.removeChild(numScoreList.lastChild);
+  }
 });
 
 function replace(str) {
