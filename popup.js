@@ -175,6 +175,7 @@ practiceInput.addEventListener("input", function () {
   const currentWordString = currentWordArr.join("");
   if (this.value === currentWordString) {
     // word spelled correctly
+    practiceInput.readOnly = true;
     practiceInput.style.cssText = "background-color: #5cb85c";
     // add to word count and update localStorage
     wordData[currentWordString] += 1;
@@ -187,6 +188,7 @@ practiceInput.addEventListener("input", function () {
       practiceInput.classList.remove("correct-spelling");
       practiceInput.value = "";
       currentWord.innerText = replace(currentWordString);
+      practiceInput.readOnly = false;
     }, 750);
   } else if (this.value !== currentWordString.substr(0, currLen)) {
     practiceInput.style.cssText = "background: #d9534f";
