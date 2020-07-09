@@ -221,20 +221,21 @@ body {
 
 .stats-popup-header {
   display: flex;
-  align-items: center;
   justify-content: center;
   margin-top: 10px;
 }
 
 .stats-popup-body {
+  height: 200px;
+  overflow: auto;
   display: flex;
   align-items: space-evenly;
   justify-content: space-evenly;
   flex-direction: rows;
-  margin-top: 10px;
   padding-left: 20px;
-  padding-right: 50px;
+  padding-right: 55px;
   font-size: 16px;
+  margin-top: -10px;
 }
 
 .word-score-list {
