@@ -7,8 +7,24 @@ html,
 body {
   min-height: 400px;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
+
+body {
+  border: 1px solid black;
+}
+
+a,
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: #5cb85c;
+}
+
+/* Each state */
 
 #app {
   width: 450px;
@@ -20,6 +36,14 @@ body {
   justify-content: center;
   height: 50px;
   margin-bottom: 15px;
+  /* to slightly off center title */
+  padding-right: 50px;
+}
+
+.app-header h1 {
+  font-family: "Pacifico", cursive;
+  color: #5cb85c;
+  text-shadow: 1px 2px black;
 }
 
 .bar-graph-container {
@@ -30,7 +54,7 @@ body {
   height: 40px;
   z-index: 1;
   position: relative;
-  right: 125px;
+  right: 100px;
   border-bottom: 1px solid black;
 }
 
@@ -51,7 +75,6 @@ body {
 .body-sub {
   width: 50%;
   min-height: 250px;
-  /* border: 1px solid orangered; */
 }
 
 .sub-left {
@@ -153,7 +176,7 @@ body {
   line-height: 39px;
   font-size: 18px;
   margin-top: 6px;
-  margin-left: 2px;
+  margin-left: 10px;
   background: rgb(243, 239, 239);
   padding-left: 5px;
   white-space: pre;
@@ -165,7 +188,7 @@ body {
   line-height: 39px;
   font-size: 18px;
   margin-top: 6px;
-  margin-left: 2px;
+  margin-left: 10px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   background: rgb(243, 239, 239);
